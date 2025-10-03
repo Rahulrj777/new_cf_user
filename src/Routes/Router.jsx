@@ -30,7 +30,7 @@ const Router = () => {
             <Route Path="/cinematography" element={<Cinematography/>}/>
 
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </>
   );
