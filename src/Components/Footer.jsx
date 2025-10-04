@@ -14,7 +14,7 @@ const Footer = () => {
 
   const internalLinks = [
     { name: "Home", path: "/" },
-    { name: "Workshops", path: "/workshops" },
+    { name: "Workshops", path: "/" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -49,7 +49,6 @@ const Footer = () => {
                 alt="CF Logo"
                 title="Filmmaking Academy"
                 loading="lazy"
-                fetchPriority="auto"
               />
               <p className="font-[roboto] text-[11px] md:text-[12px] text-gray-300 font-light mt-4 text-justify">
                 At Cinema Factory Academy, we are committed to helping you turn your passion into a career. Our courses are designed to be both practical and theoretical, ensuring you leave with a strong foundation and the confidence to pursue your dreams.

@@ -1,148 +1,76 @@
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { PinContainer } from "./ui/3d-pin";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import { FaFilm, FaVideo, FaCut, FaMagic, FaProjectDiagram, FaTheaterMasks, FaCameraRetro, FaAdjust } from "react-icons/fa";
 
-import { Link } from "react-router-dom";
+import directionImg from "../assets/syllabus/acting.png";
+import cinematographyImg from "../assets/syllabus/Cinematography.webp";
+import editingImg from "../assets/syllabus/editing.jpg";
+import vfxImg from "../assets/syllabus/vfx.jpg";
+import vpImg from "../assets/syllabus/VP.jpg";
+import actingImg from "../assets/syllabus/acting.png";
+import photographyImg from "../assets/syllabus/photo.jpeg";
+import diImg from "../assets/syllabus/DI.avif";
 
-import direction from "../assets/syllabus/Direction.jpg";
-import cinematography from "../assets/syllabus/Cinematography.webp";
-import vfx from "../assets/syllabus/vfx.jpg";
-import VP from "../assets/syllabus/VP.jpg";
-import edit from "../assets/syllabus/editing.webp";
-import di from "../assets/syllabus/DI.avif";
-import acting from "../assets/syllabus/acting.png";
-import photography from "../assets/syllabus/photo.jpeg";
-
-const coursesData = [
-  {
-    title: "Direction & Screenplay",
-    img: direction,
-    desc: "This one-year film course blends theory and practicals, covering filmmaking basics, story development, direction, industry immersion, practical filming, and concludes with a web series project and comprehensive exams for industry readiness.",
-    link: "/direction",
-  },
-  {
-    title: "Cinematography",
-    img: cinematography,
-    desc: "This one-year program covers history of cinema, photography, advanced cinematography, and post-production, culminating industry visits and web series production.",
-    link: "/cinematography",
-  },
-  {
-    title: "Editing",
-    img: edit,
-    desc: "One-year editing course covering Avid, Final Cut Pro, DaVinci Resolve, progressing from theory to advanced techniques and projects, including a web series.",
-    link: "/editing",
-  },
-  {
-    title: "Virtual Production",
-    img: VP,
-    desc: "Hands-on training in industry-standard virtual production technology, mastering Unreal Engine with tailor-made courses.",
-    link: "/virtual_production",
-  },
-  {
-    title: "Visual Effects",
-    img: vfx,
-    desc: "One-year VFX diploma covering Adobe Photoshop, Illustrator, After Effects, Blender, Nuke, rotoscopy, matchmoving, AI VFX tools, and two-month internship.",
-    link: "/vfx",
-  },
-  {
-    title: "Acting",
-    img: acting,
-    desc: "Acting course covering physical and mind-body activities, voice culture, method acting, Navarasam, camera acting, audition techniques, storytelling, character study, and portfolio shoots.",
-    link: "/acting",
-  },
-  {
-    title: "Photography",
-    img: photography,
-    desc: "12-week program covering photography fundamentals, advanced techniques, film appreciation, final project and exhibition, certificate upon completion.",
-    link: "/photography",
-  },
-  {
-    title: "DI (Color Grading)",
-    img: di,
-    desc: "Three-month course covering digital imaging, color correction, advanced color grading, VFX integration, and final 5-min film project.",
-    link: "/di",
-  },
+const features = [
+  { icon: <FaFilm />, name: "Direction", path: "/direction", img: directionImg },
+  { icon: <FaVideo />, name: "Cinematography", path: "/cinematography", img: cinematographyImg },
+  { icon: <FaCut />, name: "Editing", path: "/editing", img: editingImg },
+  { icon: <FaMagic />, name: "VFX", path: "/vfx", img: vfxImg },
+  { icon: <FaProjectDiagram />, name: "Virtual Production", path: "/virtual_production", img: vpImg },
+  { icon: <FaTheaterMasks />, name: "Acting", path: "/acting", img: actingImg },
+  { icon: <FaCameraRetro />, name: "Photography", path: "/photography", img: photographyImg },
+  { icon: <FaAdjust />, name: "DI", path: "/di", img: diImg },
 ];
 
-function CoursesSection() {
-  const settings = {
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 1, // very small delay
-    speed: 5000, // duration of scroll
-    cssEase: "linear", // smooth movement
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    pauseOnHover: true,
-    arrows: false,
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 640, settings: { slidesToShow: 1 } },
-    ],
-  };
-
-  const scrollTop = () => window.scroll(0, 0);
-
+export function Course() {
   return (
-    <div className="px-4 mx-auto w-full bg-black pt-10 pb-10">
-      {/* Section Header */}
-      <div>
-        <div className="flex justify-center items-center">
-          <h2 className="font-bold text-[24px] md:text-[40px] uppercase font-[poppins] text-white">
-            Courses
-          </h2>
-        </div>
-        <p className="text-center text-[11px] md:text-[16px] text-gray-100 mt-2 md:mt-4 w-full md:w-[70%] mx-auto">
-          Our academy offers one-year diploma courses, workshops, seminars,
-          webinars, and various courses, each tailored for comprehensive
-          knowledge and practical skills. Click below for more info.
-        </p>
-      </div>
+    <div className="w-full py-10 bg-black flex flex-col items-center">
+      <h2 className="text-white text-4xl md:text-5xl font-bold mb-6 text-center">Courses</h2>
 
-      {/* Slider */}
-      <div className="mt-4 md:mt-16">
-        <Slider {...settings}>
-          {coursesData.map((course, idx) => (
-            <div className="relative group h-[32rem] cursor-pointer overflow-hidden shadow-lg">
-              {/* Image */}
-              <img
-                src={course.img}
-                className="w-full h-full object-cover"
-                alt={course.title}
-              />
-
-              {/* Black shadow overlay */}
-              <div className="absolute inset-0 bg-black/50 z-10"></div>
-
-              {/* Title (visible initially, hidden on hover) */}
-              <h2 className="absolute inset-0 flex items-center justify-center text-white font-semibold text-2xl z-20 transition-opacity duration-500 group-hover:opacity-0 text-center">
-                {course.title}
-              </h2>
-
-              {/* Hover content (description + button) */}
-              <div
-                className="absolute inset-0 flex flex-col items-center justify-center 
-               text-center text-white px-4 opacity-0 group-hover:opacity-100 
-               transition-opacity duration-500 z-20 gap-3"
-              >
-                <p className="text-2xl">{course.title}</p>
-                <p className="text-sm">{course.desc}</p>
-                <Link to={course.link} onClick={scrollTop}>
-                  <button
-                    className="mt-4 bg-[#ff0000] hover:bg-transparent hover:border-2 
-                   hover:border-[#ff0000] hover:text-[#ff0000] text-white 
-                   rounded-md shadow-md py-2 px-6 text-sm font-semibold"
-                  >
-                    Explore More
-                  </button>
-                </Link>
-              </div>
-            </div>
+      <div className="w-full max-w-[1200px] overflow-hidden">
+        <Swiper
+          modules={[EffectCoverflow, Autoplay]}
+          effect="coverflow"
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={3}       // show exactly 3 slides
+          loop={true}
+          spaceBetween={0}        // no extra spacing
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          coverflowEffect={{
+            rotate: 30,           // side slides rotation
+            stretch: 0,
+            depth: 150,
+            modifier: 1,
+            slideShadows: true,
+          }}
+        >
+          {features.map((feature, index) => (
+            <SwiperSlide key={index} className="flex justify-center">
+              <PinContainer title={feature.name} href={feature.path}>
+                <div
+                  className="flex flex-col w-[20rem] h-[20rem] rounded-2xl shadow-lg overflow-hidden relative transform transition-transform duration-700"
+                  style={{
+                    backgroundImage: `url(${feature.img})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <div className="absolute inset-0 bg-black/30"></div>
+                  <h3 className="text-white font-bold text-lg relative z-10 p-4">{feature.name}</h3>
+                  <div className="flex-1"></div>
+                  <span className="text-white/80 text-sm relative z-10 p-4">
+                    Explore the {feature.name} course.
+                  </span>
+                </div>
+              </PinContainer>
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
       </div>
     </div>
   );
 }
-
-export default CoursesSection;

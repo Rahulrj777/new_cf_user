@@ -39,9 +39,9 @@ const ContactPage = () => {
           href="https://www.google.com/maps?q=Cinema+Factory+Academy,+Chennai"
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute top-10 right-10 z-20 bg-blue-500 p-4 rounded-full text-white shadow-xl hover:bg-blue-600 transition-colors cursor-pointer pointer-events-auto"
+          className="absolute top-10 right-10 z-20 bg-blue-500 p-3 rounded-full text-white shadow-xl hover:bg-blue-600 transition-colors cursor-pointer pointer-events-auto"
         >
-          <FaLocationArrow className="text-2xl" />
+          <FaLocationArrow className="text-xl" />
         </a>
 
         {/* Overlay container */}
@@ -77,8 +77,8 @@ const ContactPage = () => {
               animate="visible"
               whileHover="hover"
             >
-              <div className="bg-purple-600 p-4 rounded-full text-white">
-                <MdOutlineMail className="text-3xl" />
+              <div className="bg-purple-600 p-3 rounded-full text-white">
+                <MdOutlineMail className="text-xl" />
               </div>
               <p className="text-white font-semibold text-lg">
                 contact@cinemafactoryacademy.com
@@ -96,8 +96,8 @@ const ContactPage = () => {
               animate="visible"
               whileHover="hover"
             >
-              <div className="bg-yellow-500 p-4 rounded-full text-white">
-                <MdOutlinePhoneAndroid className="text-3xl" />
+              <div className="bg-yellow-500 p-3 rounded-full text-white">
+                <MdOutlinePhoneAndroid className="text-xl" />
               </div>
               <p className="text-white font-semibold text-lg">{phoneNumber}</p>
             </motion.a>

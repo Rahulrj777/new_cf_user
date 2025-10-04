@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import Routes from './Routes/Router'
-import './App.css'
+import './App.css';
+import Router from './Routes/Router';
+import { SmoothCursor } from './Components/ui/smooth-cursor';
 
 function App() {
-
   return (
     <>
-    <Routes/>
+      <SmoothCursor />
+      <Router />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
