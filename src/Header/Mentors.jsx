@@ -1,5 +1,5 @@
 import React from "react";
-import DomeGallery from "./ui/DomeGallery";
+import DomeGallery from "../Components/ui/DomeGallery";
 
 const Mentors = () => {
   return (
@@ -21,7 +21,7 @@ const Mentors = () => {
           color: "white",
           fontSize: "2.5rem",
           fontWeight: "bold",
-          flexShrink: 0,
+          flexShrink: 0,  
         }}
       >
         MENTORS
