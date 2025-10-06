@@ -39,11 +39,11 @@ const itemVariants = {
 
 const AffiliationsPage = () => {
   return (
-    <div className="bg-white">
+    <div className="bg-black">
       {/* Affiliated Section */}
-      <section className="relative pt-16 pb-16 bg-gradient-to-b from-purple-50 via-white to-purple-50">
+      <section className="relative pt-16 pb-16 bg-gradient-to-b">
         <div className="w-11/12 md:w-4/5 mx-auto text-center relative z-10">
-          <h3 className="font-bold text-3xl md:text-5xl text-black uppercase mb-12">
+          <h3 className="font-bold text-3xl md:text-5xl text-white uppercase mb-12">
             Affiliated By
           </h3>
           <motion.div
@@ -72,9 +72,9 @@ const AffiliationsPage = () => {
       </section>
 
       {/* Brand Partners Section */}
-      <section className="relative pt-16 pb-16 bg-gradient-to-b from-yellow-50 via-white to-yellow-50">
+      <section className="relative pt-16 pb-16 bg-gradient-to-b">
         <div className="w-11/12 md:w-4/5 mx-auto text-center relative z-10">
-          <h3 className="font-bold text-3xl md:text-5xl text-black uppercase mb-12">
+          <h3 className="font-bold text-3xl md:text-5xl text-white uppercase mb-12">
             Our Brand Partners
           </h3>
           <motion.div

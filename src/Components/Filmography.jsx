@@ -43,7 +43,7 @@ const Filmography = () => {
   return (
     <div className="bg-black pt-16 pb-5 px-4 md:px-10">
       <h2 className="text-center text-4xl md:text-5xl font-bold text-white mb-12 uppercase tracking-wide">
-        Mentor's Filmography
+        Our Mentor's Worked In
       </h2>
 
       {/* Swiper Section */}

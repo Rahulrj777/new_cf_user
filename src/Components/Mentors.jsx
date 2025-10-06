@@ -17,14 +17,14 @@ const Mentors = () => {
       <div
         style={{
           textAlign: "center",
-          padding: "40px 0",
+          paddingBottom:"35px",
           color: "white",
           fontSize: "2.5rem",
           fontWeight: "bold",
           flexShrink: 0,
         }}
       >
-        Mentors
+        MENTORS
       </div>
 
       {/* DomeGallery fills remaining space */}

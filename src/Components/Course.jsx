@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { FaFilm, FaVideo, FaCut, FaMagic, FaProjectDiagram, FaTheaterMasks, FaCameraRetro, FaAdjust } from "react-icons/fa";
 
-import directionImg from "../assets/syllabus/acting.png";
+import directionImg from "../assets/syllabus/Direction.jpg";
 import cinematographyImg from "../assets/syllabus/Cinematography.webp";
 import editingImg from "../assets/syllabus/editing.jpg";
 import vfxImg from "../assets/syllabus/vfx.jpg";
@@ -28,7 +28,7 @@ const features = [
 export function Course() {
   return (
     <div className="w-full py-10 bg-black flex flex-col items-center">
-      <h2 className="text-white text-4xl md:text-5xl font-bold mb-6 text-center">Courses</h2>
+      <h2 className="text-white text-4xl md:text-5xl font-bold mb-6 uppercase text-center">Courses</h2>
 
       <div className="w-full max-w-[1200px] overflow-hidden">
         <Swiper
