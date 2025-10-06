@@ -10,7 +10,7 @@ const Mentors = () => {
         display: "flex",
         flexDirection: "column",
         background: "#000",
-        overflowX: "hidden", // prevent horizontal scroll
+        overflowX: "hidden",
       }}
     >
       {/* Title at the top */}
