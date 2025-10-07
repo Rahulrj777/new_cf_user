@@ -1,18 +1,9 @@
 import { motion } from "framer-motion";
-import logoOne from "../assets/clients/nsdc.png";
-import logoTwo from "../assets/clients/memc.png";
-import logoThree from "../assets/clients/skill_india.png";
 import logoFour from "../assets/clients/Lotus.png";
 import logoFive from "../assets/clients/Tinnu.png";
 import logoSix from "../assets/clients/sony.png";
 import logoSeven from "../assets/clients/panasonic.png";
 import logoEight from "../assets/clients/Godox.png";
-
-const affiliations = [
-  { img: logoOne, name: "NSDC" },
-  { img: logoTwo, name: "MEMC" },
-  { img: logoThree, name: "Skill India" },
-];
 
 const clients = [
   { img: logoFour, name: "Lotus" },
@@ -39,19 +30,15 @@ const itemVariants = {
     transition: { duration: 0.6, ease: "easeOut" },
   },
   hover: { scale: 1.1, rotate: 3, transition: { duration: 0.3 } },
-  float: {
-    y: [0, -8, 0],
-    transition: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-  },
+  float: { y: [0, -8, 0], transition: { duration: 3, repeat: Infinity, ease: "easeInOut" } },
 };
 
 const AffiliationsPage = () => {
   return (
     <div className="bg-white">
-      {/* ======= SECTION 1: AFFILIATED BY ======= */}
       <section className="relative py-20 bg-gradient-to-b from-purple-50 via-white to-purple-50 overflow-hidden">
         <motion.div
-          className="w-11/12 md:w-4/5 mx-auto flex flex-col md:flex-row items-center gap-40"
+          className="w-11/12 md:w-4/5 mx-auto flex flex-col md:flex-row items-center gap-10"
           initial="hidden"
           whileInView="visible"
           variants={containerVariants}
@@ -59,15 +46,15 @@ const AffiliationsPage = () => {
         >
           {/* Title */}
           <h3 className="font-bold text-3xl md:text-5xl text-purple-700 uppercase text-center md:text-left md:w-1/3">
-            Affiliated <br /> By
+             Our <br /> Brand Partners
           </h3>
 
-          {/* Logos in staggered/brick layout with NO gaps */}
+          {/* Logos in staggered/brick layout */}
           <motion.div
-            className="grid grid-cols-3 auto-rows-auto" // removed gap classes
+            className="grid grid-cols-5 gap-6 md:gap-8 auto-rows-auto"
             variants={containerVariants}
           >
-            {affiliations.map((aff, index) => (
+             {clients.map((client, index) => (
               <motion.div
                 key={index}
                 className={`w-28 h-28 md:w-36 md:h-36 bg-white rounded-2xl shadow-lg border border-purple-200 hover:border-purple-400 flex justify-center items-center ${
@@ -77,51 +64,7 @@ const AffiliationsPage = () => {
                 whileHover="hover"
                 animate="float"
               >
-                <img
-                  src={aff.img}
-                  alt={aff.name}
-                  className="w-20 h-20 object-contain"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* ======= SECTION 2: BRAND PARTNERS ======= */}
-      <section className="relative py-20 bg-gradient-to-b from-yellow-50 via-white to-yellow-50 overflow-hidden">
-        <motion.div
-          className="w-11/12 md:w-4/5 mx-auto flex flex-col md:flex-row-reverse items-center gap-10"
-          initial="hidden"
-          whileInView="visible"
-          variants={containerVariants}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          {/* Title */}
-          <h3 className="font-bold text-3xl md:text-5xl text-yellow-600 uppercase text-center md:text-right md:w-1/3">
-            Our <br /> Brand Partners
-          </h3>
-
-          {/* Logos in staggered/brick layout */}
-          <motion.div
-            className="grid grid-cols-5 gap-6 md:gap-8 auto-rows-auto"
-            variants={containerVariants}
-          >
-            {clients.map((client, index) => (
-              <motion.div
-                key={index}
-                className={`w-28 h-28 md:w-36 md:h-36 bg-white rounded-2xl shadow-lg border border-yellow-200 hover:border-yellow-400 flex justify-center items-center ${
-                  index % 2 === 1 ? "translate-y-6 md:translate-y-8" : ""
-                }`}
-                variants={itemVariants}
-                whileHover="hover"
-                animate="float"
-              >
-                <img
-                  src={client.img}
-                  alt={client.name}
-                  className="w-20 h-20 object-contain"
-                />
+                 <img src={client.img} alt={client.name} className="w-20 h-20 object-contain" />
               </motion.div>
             ))}
           </motion.div>
@@ -132,6 +75,7 @@ const AffiliationsPage = () => {
 };
 
 export default AffiliationsPage;
+
 
 // import { useRef, useEffect } from "react";
 // import Matter from "matter-js";
@@ -239,7 +183,7 @@ export default AffiliationsPage;
 //         const x = 100 + (i % 5) * 160;
 //         const y = Math.random() * -300;
 //         const body = Bodies.rectangle(x, y, size, size, {
-//           restitution: 0.9,
+//           restitution: 0.9, 
 //           frictionAir: 0.05,
 //         });
 //         body.customImage = img;
