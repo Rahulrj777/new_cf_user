@@ -42,7 +42,16 @@ const Filmography = () => {
 
   return (
     <div className="bg-black pb-5 px-4 md:px-10">
-      <h2 className="text-center text-4xl md:text-5xl font-bold text-white mb-12 uppercase tracking-wide">
+      <h2
+        className="text-center text-4xl md:text-5xl font-bold text-white mb-12 uppercase tracking-wide"
+        style={{
+          textShadow: `
+      0 0 3px #D47BFF,
+      0 0 6px #D47BFF,
+      0 0 10px rgba(212,123,255,0.5)
+    `,
+        }}
+      >
         Our Mentor's Worked In
       </h2>
 

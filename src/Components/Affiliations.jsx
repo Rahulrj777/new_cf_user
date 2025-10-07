@@ -30,15 +30,28 @@ const itemVariants = {
     transition: { duration: 0.6, ease: "easeOut" },
   },
   hover: { scale: 1.1, rotate: 3, transition: { duration: 0.3 } },
-  float: { y: [0, -8, 0], transition: { duration: 3, repeat: Infinity, ease: "easeInOut" } },
+  float: {
+    y: [0, -8, 0],
+    transition: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+  },
 };
 
 const AffiliationsPage = () => {
   return (
-    <div className="bg-white">
-      <section className="relative py-20 bg-gradient-to-b from-purple-50 via-white to-purple-50 overflow-hidden">
+    <div className="relative bg-white">
+      <section className="relative py-20 overflow-hidden">
+        {/* Purple overlay background */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(circle at center, rgba(212,123,255,0.08) 0%, rgba(212,123,255,0.02) 100%)",
+            zIndex: 0,
+          }}
+        ></div>
+
         <motion.div
-          className="w-11/12 md:w-4/5 mx-auto flex flex-col md:flex-row items-center gap-10"
+          className="relative w-11/12 md:w-4/5 mx-auto flex flex-col md:flex-row items-center gap-10 z-10"
           initial="hidden"
           whileInView="visible"
           variants={containerVariants}
@@ -46,7 +59,7 @@ const AffiliationsPage = () => {
         >
           {/* Title */}
           <h3 className="font-bold text-3xl md:text-5xl text-purple-700 uppercase text-center md:text-left md:w-1/3">
-             Our <br /> Brand Partners
+            Our <br /> Brand Partners
           </h3>
 
           {/* Logos in staggered/brick layout */}
@@ -54,7 +67,7 @@ const AffiliationsPage = () => {
             className="grid grid-cols-5 gap-6 md:gap-8 auto-rows-auto"
             variants={containerVariants}
           >
-             {clients.map((client, index) => (
+            {clients.map((client, index) => (
               <motion.div
                 key={index}
                 className={`w-28 h-28 md:w-36 md:h-36 bg-white rounded-2xl shadow-lg border border-purple-200 hover:border-purple-400 flex justify-center items-center ${
@@ -64,7 +77,11 @@ const AffiliationsPage = () => {
                 whileHover="hover"
                 animate="float"
               >
-                 <img src={client.img} alt={client.name} className="w-20 h-20 object-contain" />
+                <img
+                  src={client.img}
+                  alt={client.name}
+                  className="w-20 h-20 object-contain"
+                />
               </motion.div>
             ))}
           </motion.div>
@@ -75,7 +92,6 @@ const AffiliationsPage = () => {
 };
 
 export default AffiliationsPage;
-
 
 // import { useRef, useEffect } from "react";
 // import Matter from "matter-js";
@@ -183,7 +199,7 @@ export default AffiliationsPage;
 //         const x = 100 + (i % 5) * 160;
 //         const y = Math.random() * -300;
 //         const body = Bodies.rectangle(x, y, size, size, {
-//           restitution: 0.9, 
+//           restitution: 0.9,
 //           frictionAir: 0.05,
 //         });
 //         body.customImage = img;

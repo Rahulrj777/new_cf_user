@@ -3,7 +3,16 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
-import { FaFilm, FaVideo, FaCut, FaMagic, FaProjectDiagram, FaTheaterMasks, FaCameraRetro, FaAdjust } from "react-icons/fa";
+import {
+  FaFilm,
+  FaVideo,
+  FaCut,
+  FaMagic,
+  FaProjectDiagram,
+  FaTheaterMasks,
+  FaCameraRetro,
+  FaAdjust,
+} from "react-icons/fa";
 
 import directionImg from "../assets/syllabus/Direction.jpg";
 import cinematographyImg from "../assets/syllabus/Cinematography.webp";
@@ -15,20 +24,51 @@ import photographyImg from "../assets/syllabus/photo.jpeg";
 import diImg from "../assets/syllabus/DI.avif";
 
 const features = [
-  { icon: <FaFilm />, name: "Direction", path: "/direction", img: directionImg },
-  { icon: <FaVideo />, name: "Cinematography", path: "/cinematography", img: cinematographyImg },
+  {
+    icon: <FaFilm />,
+    name: "Direction",
+    path: "/direction",
+    img: directionImg,
+  },
+  {
+    icon: <FaVideo />,
+    name: "Cinematography",
+    path: "/cinematography",
+    img: cinematographyImg,
+  },
   { icon: <FaCut />, name: "Editing", path: "/editing", img: editingImg },
   { icon: <FaMagic />, name: "VFX", path: "/vfx", img: vfxImg },
-  { icon: <FaProjectDiagram />, name: "Virtual Production", path: "/virtual_production", img: vpImg },
+  {
+    icon: <FaProjectDiagram />,
+    name: "Virtual Production",
+    path: "/virtual_production",
+    img: vpImg,
+  },
   { icon: <FaTheaterMasks />, name: "Acting", path: "/acting", img: actingImg },
-  { icon: <FaCameraRetro />, name: "Photography", path: "/photography", img: photographyImg },
+  {
+    icon: <FaCameraRetro />,
+    name: "Photography",
+    path: "/photography",
+    img: photographyImg,
+  },
   { icon: <FaAdjust />, name: "DI", path: "/di", img: diImg },
 ];
 
 export function Course() {
   return (
     <div className="w-full py-10 bg-black flex flex-col items-center">
-      <h2 className="text-white text-4xl md:text-5xl font-bold mb-6 uppercase text-center">Courses</h2>
+      <h2
+        className="text-center text-4xl md:text-5xl font-bold text-white mb-12 uppercase tracking-wide"
+        style={{
+          textShadow: `
+      0 0 3px #D47BFF,
+      0 0 6px #D47BFF,
+      0 0 10px rgba(212,123,255,0.5)
+    `,
+        }}
+      >
+        Course
+      </h2>
 
       <div className="w-full max-w-[1200px] overflow-hidden">
         <Swiper
@@ -36,12 +76,12 @@ export function Course() {
           effect="coverflow"
           grabCursor={true}
           centeredSlides={true}
-          slidesPerView={3}       // show exactly 3 slides
+          slidesPerView={3} // show exactly 3 slides
           loop={true}
-          spaceBetween={0}        // no extra spacing
+          spaceBetween={0} // no extra spacing
           autoplay={{ delay: 2000, disableOnInteraction: false }}
           coverflowEffect={{
-            rotate: 30,           // side slides rotation
+            rotate: 30, // side slides rotation
             stretch: 0,
             depth: 150,
             modifier: 1,
@@ -60,7 +100,9 @@ export function Course() {
                   }}
                 >
                   <div className="absolute inset-0 bg-black/30"></div>
-                  <h3 className="text-white font-bold text-lg relative z-10 p-4">{feature.name}</h3>
+                  <h3 className="text-white font-bold text-lg relative z-10 p-4">
+                    {feature.name}
+                  </h3>
                   <div className="flex-1"></div>
                   <span className="text-white/80 text-sm relative z-10 p-4">
                     Explore the {feature.name} course.

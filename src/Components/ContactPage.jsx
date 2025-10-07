@@ -34,16 +34,6 @@ const ContactPage = () => {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
 
-        {/* Location Arrow */}
-        <a
-          href="https://www.google.com/maps?q=Cinema+Factory+Academy,+Chennai"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute top-10 right-10 z-20 bg-blue-500 p-3 rounded-full text-white shadow-xl hover:bg-blue-600 transition-colors cursor-pointer pointer-events-auto"
-        >
-          <FaLocationArrow className="text-xl" />
-        </a>
-
         {/* Overlay container */}
         <div className="absolute inset-0 flex flex-col items-center justify-center px-4 py-20 gap-12 z-10">
           <motion.h1
@@ -52,7 +42,17 @@ const ContactPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            Get in Touch
+            <h2
+              style={{
+                textShadow: `
+      0 0 3px #D47BFF,
+      0 0 6px #D47BFF,
+      0 0 10px rgba(212,123,255,0.5)
+    `,
+              }}
+            >
+              Get in Touch
+            </h2>
           </motion.h1>
 
           <motion.p
@@ -67,7 +67,7 @@ const ContactPage = () => {
           </motion.p>
 
           {/* Contact cards */}
-          <div className="flex flex-col md:flex-row gap-6 md:gap-12 mt-10">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-12 mt-10 justify-center">
             {/* Email */}
             <motion.a
               href="mailto:contact@cinemafactoryacademy.com"
@@ -77,7 +77,7 @@ const ContactPage = () => {
               animate="visible"
               whileHover="hover"
             >
-              <div className="bg-purple-600 p-3 rounded-full text-white">
+              <div className="bg-green-600 p-3 rounded-full text-white">
                 <MdOutlineMail className="text-xl" />
               </div>
               <p className="text-white font-semibold text-lg">
@@ -100,6 +100,23 @@ const ContactPage = () => {
                 <MdOutlinePhoneAndroid className="text-xl" />
               </div>
               <p className="text-white font-semibold text-lg">{phoneNumber}</p>
+            </motion.a>
+
+            {/* Location */}
+            <motion.a
+              href="https://www.google.com/maps?q=Cinema+Factory+Academy,+Chennai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white/20 backdrop-blur-md rounded-3xl shadow-2xl p-6 flex items-center gap-4 cursor-pointer"
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              whileHover="hover"
+            >
+              <div className="bg-purple-600 p-3 rounded-full text-white">
+                <FaLocationArrow className="text-xl" />
+              </div>
+              <p className="text-white font-semibold text-lg">Our Location</p>
             </motion.a>
           </div>
         </div>
