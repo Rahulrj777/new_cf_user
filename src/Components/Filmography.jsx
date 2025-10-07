@@ -80,7 +80,7 @@ const Filmography = () => {
       {/* Mentor Content */}
       <div className="max-w-5xl mx-auto text-center">
         <p className="text-white text-lg md:text-xl leading-relaxed mb-6">
-          <span className="font-bold text-yellow-400">
+          <span className="font-bold text-[#D47BFF]">
             Ready to build your film career?
           </span>{" "}
           Learn from those who have already built theirs. Our team of mentors
