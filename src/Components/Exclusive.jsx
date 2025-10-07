@@ -147,20 +147,37 @@ function Exclusive() {
                 padding: "15px 10px",
                 borderRadius: "15px",
                 background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.15)",
+                border: "1px solid rgba(212,123,255,0.3)",
+                boxShadow: "0 0 12px rgba(212,123,255,0.25)", // soft purple shadow around card
               }}
             >
-              <img
-                src={offer.imageUrl}
-                alt={offer.titleLine}
+              {/* Icon container with purple glow */}
+              <div
                 style={{
-                  width: "55px",
-                  height: "55px",
-                  objectFit: "contain",
-                  marginBottom: "10px",
-                  filter: "drop-shadow(0 0 8px rgba(255,233,255,0.6))",
+                  width: "65px",
+                  height: "65px",
+                  borderRadius: "50%",
+                  background: "rgba(212,123,255,0.15)", // soft purple background
+                  margin: "0 auto 10px auto",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 0 18px rgba(212,123,255,0.6)", // glowing purple halo
                 }}
-              />
+              >
+                <img
+                  src={offer.imageUrl}
+                  alt={offer.titleLine}
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    objectFit: "contain",
+                    filter: "invert(1) brightness(1.2)", // makes dark icons white
+                  }}
+                />
+              </div>
+
+              {/* Title Text */}
               <p
                 style={{
                   fontSize: "0.85rem",

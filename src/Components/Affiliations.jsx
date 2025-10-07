@@ -23,90 +23,115 @@ const clients = [
 ];
 
 const containerVariants = {
-  hidden: {},
+  hidden: { opacity: 0, y: 50 },
   visible: {
-    transition: {
-      staggerChildren: 0.2,
-    },
+    opacity: 1,
+    y: 0,
+    transition: { staggerChildren: 0.15, duration: 0.8, ease: "easeOut" },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 50, scale: 0.8 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6 } },
-  hover: { scale: 1.1, rotate: 5, transition: { duration: 0.3 } },
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+  hover: { scale: 1.1, rotate: 3, transition: { duration: 0.3 } },
+  float: {
+    y: [0, -8, 0],
+    transition: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+  },
 };
 
 const AffiliationsPage = () => {
   return (
     <div className="bg-white">
-      {/* Affiliated Section */}
-      <section className="relative pt-16 pb-16 bg-gradient-to-b from-purple-50 via-white to-purple-50">
-        <div className="w-11/12 md:w-4/5 mx-auto text-center relative z-10">
-          <h3 className="font-bold text-3xl md:text-5xl text-black uppercase mb-12">
-            Affiliated By
+      {/* ======= SECTION 1: AFFILIATED BY ======= */}
+      <section className="relative py-20 bg-gradient-to-b from-purple-50 via-white to-purple-50 overflow-hidden">
+        <motion.div
+          className="w-11/12 md:w-4/5 mx-auto flex flex-col md:flex-row items-center gap-40"
+          initial="hidden"
+          whileInView="visible"
+          variants={containerVariants}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          {/* Title */}
+          <h3 className="font-bold text-3xl md:text-5xl text-purple-700 uppercase text-center md:text-left md:w-1/3">
+            Affiliated <br /> By
           </h3>
+
+          {/* Logos in staggered/brick layout with NO gaps */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-3 gap-12"
+            className="grid grid-cols-3 auto-rows-auto" // removed gap classes
             variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
           >
             {affiliations.map((aff, index) => (
               <motion.div
                 key={index}
-                className="flex justify-center items-center p-4 bg-white rounded-xl shadow-lg"
+                className={`w-28 h-28 md:w-36 md:h-36 bg-white rounded-2xl shadow-lg border border-purple-200 hover:border-purple-400 flex justify-center items-center ${
+                  index % 2 === 1 ? "translate-y-6 md:translate-y-8" : ""
+                }`}
                 variants={itemVariants}
                 whileHover="hover"
+                animate="float"
               >
                 <img
                   src={aff.img}
                   alt={aff.name}
-                  className="w-24 md:w-32 object-contain"
+                  className="w-20 h-20 object-contain"
                 />
               </motion.div>
             ))}
           </motion.div>
-        </div>
+        </motion.div>
       </section>
 
-      {/* Brand Partners Section */}
-      <section className="relative pt-16 pb-16 bg-gradient-to-b from-yellow-50 via-white to-yellow-50">
-        <div className="w-11/12 md:w-4/5 mx-auto text-center relative z-10">
-          <h3 className="font-bold text-3xl md:text-5xl text-black uppercase mb-12">
-            Our Brand Partners
+      {/* ======= SECTION 2: BRAND PARTNERS ======= */}
+      <section className="relative py-20 bg-gradient-to-b from-yellow-50 via-white to-yellow-50 overflow-hidden">
+        <motion.div
+          className="w-11/12 md:w-4/5 mx-auto flex flex-col md:flex-row-reverse items-center gap-10"
+          initial="hidden"
+          whileInView="visible"
+          variants={containerVariants}
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          {/* Title */}
+          <h3 className="font-bold text-3xl md:text-5xl text-yellow-600 uppercase text-center md:text-right md:w-1/3">
+            Our <br /> Brand Partners
           </h3>
+
+          {/* Logos in staggered/brick layout */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-5 gap-12"
+            className="grid grid-cols-5 gap-6 md:gap-8 auto-rows-auto"
             variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
           >
             {clients.map((client, index) => (
               <motion.div
                 key={index}
-                className="flex justify-center items-center p-4 bg-white rounded-xl shadow-lg"
+                className={`w-28 h-28 md:w-36 md:h-36 bg-white rounded-2xl shadow-lg border border-yellow-200 hover:border-yellow-400 flex justify-center items-center ${
+                  index % 2 === 1 ? "translate-y-6 md:translate-y-8" : ""
+                }`}
                 variants={itemVariants}
                 whileHover="hover"
+                animate="float"
               >
                 <img
                   src={client.img}
                   alt={client.name}
-                  className="w-24 md:w-32 object-contain"
+                  className="w-20 h-20 object-contain"
                 />
               </motion.div>
             ))}
           </motion.div>
-        </div>
+        </motion.div>
       </section>
     </div>
   );
 };
 
 export default AffiliationsPage;
-
 
 // import { useRef, useEffect } from "react";
 // import Matter from "matter-js";
@@ -214,7 +239,7 @@ export default AffiliationsPage;
 //         const x = 100 + (i % 5) * 160;
 //         const y = Math.random() * -300;
 //         const body = Bodies.rectangle(x, y, size, size, {
-//           restitution: 0.9, 
+//           restitution: 0.9,
 //           frictionAir: 0.05,
 //         });
 //         body.customImage = img;
