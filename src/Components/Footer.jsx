@@ -80,7 +80,7 @@ const Footer = () => {
         {/* Contact */}
         <div className="flex flex-col gap-3">
           <h3 className="font-bold uppercase tracking-wider text-sm md:text-base">Contact Us</h3>
-          <p className="text-gray-400 text-sm md:text-[13px]">
+          <p className="text-sm md:text-[13px]">
             No.271A, 3rd Floor, Maan Sarovar Tower, Scheme Road, Teynampet, Chennai - 600018, India
           </p>
 
